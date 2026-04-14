@@ -1,8 +1,9 @@
-import React, { use, useEffect, useState } from "react";
+import React from "react";
 
 import AppCard from "../ui/AppCard";
 import { ClockLoader } from "react-spinners";
 import { Link } from "react-router";
+import useApps from "../../hooks/useApps";
 
 // import { useLoaderData } from "react-router";
 
@@ -14,24 +15,27 @@ const TrendingApps = () => {
   //   const data = useLoaderData();
   //   console.log("Data from Trending Apps vaya home page", data);
 
-  const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //   const [apps, setApps] = useState([]);
+  //   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      console.log("Data fetching using use effect", data);
-      setTimeout(() => {
-        setApps(data);
-        setLoading(false);
-      }, 2000);
-    };
-    fetchData();
-  }, []);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const res = await fetch("/data.json");
+  //       const data = await res.json();
+  //       console.log("Data fetching using use effect", data);
+  //       setTimeout(() => {
+  //         setApps(data);
+  //         setLoading(false);
+  //       }, 2000);
+  //     };
+  //     fetchData();
+  //   }, []);
 
-  console.log("Apps Data", apps);
-  console.log("Loading", loading);
+  //   console.log("Apps Data", apps);
+  //   console.log("Loading", loading);
+
+  /**Custom hooks use */
+  const { apps, loading } = useApps();
 
   return (
     <div>

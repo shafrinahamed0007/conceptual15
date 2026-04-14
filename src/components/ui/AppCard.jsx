@@ -1,10 +1,11 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const AppCard = ({ app }) => {
   return (
-    <div key={app.id} className="card bg-base-100 shadow shadow-emerald-300 p-5 ">
+    <Link to={`/apps/${app.id}`} key={app.id} className="card bg-base-100 shadow shadow-emerald-300 p-5 ">
       <figure>
         <img className="w-[200px] h-[200px]" src={app?.image} alt={app?.title} />
       </figure>
@@ -22,7 +23,7 @@ const AppCard = ({ app }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
