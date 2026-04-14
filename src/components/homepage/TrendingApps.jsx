@@ -44,7 +44,7 @@ const TrendingApps = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 container mx-auto">
-            {apps.map((app) => {
+            {apps.slice(0,9).map((app) => {
               return <AppCard key={app.id} app={app} />;
             })}
           </div>
