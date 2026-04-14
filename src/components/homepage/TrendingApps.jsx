@@ -1,10 +1,23 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
+// import { useLoaderData } from "react-router";
 
-const appsPromise = fetch("/data.json").then((res) => res.json());
+// const appsPromise = fetch("/data.json").then((res) => res.json());
 
 const TrendingApps = () => {
-  const apps = use(appsPromise);
-  console.log("Apps", apps);
+  //   const apps = use(appsPromise);
+  //   console.log("Apps", apps);
+  //   const data = useLoaderData();
+  //   console.log("Data from Trending Apps vaya home page", data);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/data.json");
+      const data = await res.json();
+      console.log("Data fetching using use effect", data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div>
       <div>{/* Section header */}</div>
