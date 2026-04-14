@@ -7,37 +7,34 @@ import RootLayout from "./layout/RootLayout.jsx";
 import Apps from "./pages/apps/Apps.jsx";
 import InstallApps from "./pages/installApps/InstallApps.jsx";
 import NotFound from "./pages/NotFoundPage/NotFound.jsx";
+import Homepage from "./pages/homepage/Homepage.jsx";
 
-
-
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <RootLayout />,
-      children: [{
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
         path: "/",
         index: true,
-        element: <h2>Homepage</h2>
-
+        element: <Homepage />,
       },
-    {
-  path: "/apps",
-  element:  <Apps />
-    },
-    {
-      path: "/installApps",
-      element: <InstallApps />
-    }
-  ],
-  errorElement: <NotFound />
-    }
-  ]
-);
+      {
+        path: "/apps",
+        element: <Apps />,
+      },
+      {
+        path: "/installApps",
+        element: <InstallApps />,
+      },
+    ],
+    errorElement: <NotFound />,
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
-    <RouterProvider router = {router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
