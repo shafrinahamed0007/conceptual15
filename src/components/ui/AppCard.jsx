@@ -4,9 +4,9 @@ import { FaRegStar } from "react-icons/fa6";
 
 const AppCard = ({ app }) => {
   return (
-    <div key={app.id} className="card bg-base-100 w-96 shadow-sm">
+    <div key={app.id} className="card bg-base-100 shadow shadow-emerald-300 p-5 ">
       <figure>
-        <img src={app?.image} alt={app?.title} />
+        <img className="w-[200px] h-[200px]" src={app?.image} alt={app?.title} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{app?.title}</h2>

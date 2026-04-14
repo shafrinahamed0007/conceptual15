@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 
 import AppCard from "../ui/AppCard";
 import { ClockLoader } from "react-spinners";
+import { Link } from "react-router";
 
 // import { useLoaderData } from "react-router";
 
@@ -43,12 +44,17 @@ const TrendingApps = () => {
             <ClockLoader color="#c92222" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 container mx-auto">
-            {apps.slice(0,9).map((app) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 container mx-auto">
+            {apps.slice(0, 9).map((app) => {
               return <AppCard key={app.id} app={app} />;
             })}
           </div>
         )}
+        <div className="text-center mt-4">
+          <Link to={"/apps"}>
+            <button className="btn">View All</button>
+          </Link>
+        </div>
       </div>
       <div className="mb-8 text-center">
         <h2 className="font-bold text-4xl">Trending Apps</h2>
